@@ -3,19 +3,6 @@ from apache_beam.options.pipeline_options import PipelineOptions
 from apache_beam.io.gcp.internal.clients import bigquery
 
 
-class ChangeData(beam.DoFn):
-    def process(self, element):
-        # print(element)
-        # print(type(element))
-
-        # print(element["name"])
-        # element["name"] = (element["name"] + " New")
-        # print(element["name"])
-        # yield element
-
-        yield element
-
-
 def run():
     opt = PipelineOptions(
         temp_location="gs://york_jimt/tmp/",
@@ -70,6 +57,5 @@ def run():
 
 
 if __name__ == '__main__':
-    print("Hello Jenkins")
     run()
     pass
