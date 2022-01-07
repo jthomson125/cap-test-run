@@ -1,1 +1,2 @@
 apache-beam[gcp]
+pyparsing == 2.4.7
