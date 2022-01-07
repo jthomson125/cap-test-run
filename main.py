@@ -13,14 +13,6 @@ def run():
         save_main_session=True
     )
 
-    schema = {
-        'fields': [
-            {'name': 'order_id', 'type': 'INTEGER', 'mode': 'NULLABLE'},
-            {'name': 'name', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'description', 'type': 'STRING', 'mode': 'NULLABLE'},
-        ]
-    }
-
     new_schema = {
         'fields': [
             {'name': 'name', 'type': 'STRING', 'mode': 'NULLABLE'},
@@ -33,10 +25,6 @@ def run():
         datasetId="j_thomson_cap_test_run",
         tableId="cap_test_join"
     )
-    table1 = "york-cdf-start.bigquerypython.bqtable1"
-    table2 = "york-cdf-start.bigquerypython.bqtable4"
-
-    table2 = bigquery.TableReference()
 
     with beam.Pipeline(runner="DataflowRunner", options=opt) as pipeline:
         # read in BigQuery Tables
@@ -53,9 +41,6 @@ def run():
             custom_gcs_temp_location="gs://york_jimt/tmp"
         )
 
-        pass
-
 
 if __name__ == '__main__':
     run()
-    pass
